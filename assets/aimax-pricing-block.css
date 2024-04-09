@@ -1,0 +1,239 @@
+@media screen and (max-width: 1200px) {
+.aimax-pricing-block .home-pricing .dt-sc-pricing-block .dt-sc-pricing-header-area .dt-sc-pricing-sub-title, .home-pricing .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-title {font-size:calc(var(--DTFontSize_H4) - 2px );}
+.aimax-pricing-block .home-pricing .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-content-area {padding:30px 20px;}
+}
+
+@media screen and (max-width: 768px) {
+.aimax-pricing-block .home-pricing .dt-sc-pricing-block:last-child {margin-bottom:0;}
+.aimax-pricing-block .home-pricing .dt-sc-pricing-block .dt-sc-pricing-header-area .dt-sc-pricing-sub-title, .home-pricing .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-title {font-size:calc(var(--DTFontSize_H4) - 2px );}
+.aimax-pricing-block .home-pricing .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-content-area {padding:30px 20px;}
+}
+
+@media screen and (max-width: 767px) and (min-width:481px) {
+.aimax-pricing-block .home-pricing .dt-sc-pricing-block {width:80%; margin:0 auto 100px;}
+.aimax-pricing-block .home-pricing .dt-sc-pricing-block:last-child {margin-bottom:0;}
+}
+
+@media screen and (max-width: 767px) {
+.aimax-pricing-block .home-pricing .dt-sc-pricing-block {margin-bottom:100px;}
+}
+
+.aimax-pricing-block .dt-sc-pricing-blocks-section.style-1 .dt-sc-pricing-block .dt-sc-pricing-content-area {padding-left:0; padding-right:0;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section.style-1 .dt-sc-pricing-block .dt-sc-pricing-image {padding:0;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section.style-2 {border-color:var(--DTTertiaryColor); border-left-width:1px; border-left-style:solid; border-top-width:1px; border-top-style:solid;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section.style-2 .dt-sc-pricing-block {border-color:var(--DTTertiaryColor); border-right-width:1px; border-right-style:solid; border-bottom-width:1px; border-bottom-style:solid;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section.style-3 .dt-sc-pricing-block {border-width:0px; border-style:solid;    background: var(--gradient-base-accent-1);}
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*="style-"] .dt-sc-pricing-block .dt-sc-pricing-button {transition:.5s linear; text-align:center; width:100%; margin-top:2rem;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*="style-"] .dt-sc-pricing-block:hover .dt-sc-pricing-button .button {animation:text-expand 0.6s linear;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*="style-"] .dt-sc-pricing-block .dt-sc-pricing-button .button {max-width:330px; width:100%; padding:15px 0;background: var(--gradient-base-accent-2);}
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*="style-"] .dt-sc-pricing-block .dt-sc-pricing-header-area {background:var(--DTTertiaryColor); color:var(--gradient-base-accent-1); text-align:center; width:100%; position:relative;}
+.aimax-pricing-block .dt-sc-pricing-header-area.description {position:relative;}
+
+.aimax-pricing-block .dt-sc-pricing-header-area.description .dt-sc-pricing-description {
+    width: fit-content;
+    margin: 0 auto 0 0;
+  font-weight: 500;
+}
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*="style-"] .dt-sc-pricing-block .dt-sc-pricing-header-area .dt-sc-pricing-title {transition:var(--duration-default);}
+
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*="style-"] .dt-sc-pricing-block .dt-sc-pricing-header-area .dt-sc-pricing-sub-title {font-weight:500;font-size: clamp(3rem, 2.5714rem + 1.9592vw, 6rem);text-align: left;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section.style-2 {grid-gap:0;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-image svg {width:100%; height:auto;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-title {
+    margin: 0;
+    font-weight: 400;
+    font-size: 3rem;
+    max-width: 330px;
+    text-align: left;
+    text-transform: uppercase;
+}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .pricing_plan_button a{color: rgb(var(--color-background));}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-button {padding:0 0 35px;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-button {background:var(--DTTertiaryColor);}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-list {display:flex; flex-wrap:wrap; flex-direction:column; margin:0; padding:0; align-items:flex-start;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-list li {display:flex; justify-content:space-between; align-items:center;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-list li {position:relative; margin-bottom:0; padding-bottom:8px;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-list li:last-child {margin-bottom:0px;}
+.aimax-pricing-block .banner__media img{
+  z-index: 1;
+    opacity: 0;
+  transition: all 0.3s linear;
+}
+.aimax-pricing-block .dt-sc-pricing-block:hover .banner__media img{
+  opacity: .1;
+}
+.aimax-pricing-block .banner__media:after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: rgb(var(--color-base-solid-button-labels));
+  transition: all 0.3s ease;
+    z-index: 0;
+  opacity: 0;
+}
+.aimax-pricing-block .dt-sc-pricing-block:hover .banner__media:after {
+  opacity: 1;
+}
+.aimax-pricing-block .dt-sc-pricing-block.active .banner__media:after{
+  opacity: 1;
+}
+.aimax-pricing-block .dt-sc-pricing-block.active .banner__media img{
+  opacity: .1;
+}
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block .dt-sc-pricing-header-area .dt-sc-pricing-sub-title,
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block .dt-sc-pricing-header-area .dt-sc-pricing-description,
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-list li h6,
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block .dt-sc-pricing-header-area .dt-sc-pricing-title{
+  transition: all 0.3s ease;
+}
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block:hover .dt-sc-pricing-header-area .dt-sc-pricing-sub-title,
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block:hover .dt-sc-pricing-header-area .dt-sc-pricing-description,
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block:hover .dt-sc-pricing-list li h6,
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block:hover .dt-sc-pricing-header-area .dt-sc-pricing-title,
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block.active .dt-sc-pricing-header-area .dt-sc-pricing-sub-title,
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block.active .dt-sc-pricing-header-area .dt-sc-pricing-description,
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block.active .dt-sc-pricing-list li h6,
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block.active .dt-sc-pricing-header-area .dt-sc-pricing-title{
+  color: rgb(var(--color-background));
+}
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block.active .pricing_title:after,
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block.active .pricing_sub_heading:after{
+  background: var(--gradient-background);
+}
+@keyframes border-dash {
+to {background-position:100% 0%, 0% 100%, 0% 0%, 100% 100%;}
+}
+
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-list li h6 {margin:0; font-size:1.5rem; font-weight:400;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-list li *:only-child {display:flex; width:100%;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block.text-center .dt-sc-pricing-list li *:only-child {justify-content:center;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block.text-end .dt-sc-pricing-list li *:only-child {justify-content:flex-end;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-btn {display:inline-block; margin:0; background:var(--DT_Button_BG_Color); color:var(--DT_Button_Text_Color);}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-btn:hover {background:var(--DT_Button_BG_Hover_Color); color:var(--DT_Button_Text_Hover_Color);}
+
+@media screen and (max-width: 767px) {
+.aimax-pricing-block .dt-sc-pricing-blocks-section.style-2 {border:none;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section.style-2.dt-sc-column .dt-sc-pricing-block:not(:last-child) {margin-bottom:var(--DTGutter_Width);}
+}
+
+.aimax-pricing-block .section-heading {margin-bottom:50px;}
+.aimax-pricing-block .section-heading h3.section-main-heading span {color:rgb(var(--color-base-accent-3));}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block:hover .dt-sc-pricing-image:after {background:var(--gradient-base-background-1);}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-button .button.button--primary {transition:var(--duration-default);}
+.aimax-pricing-block .dt-sc-pricing-blocks-section {grid-gap:20px;margin: 0;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block {position:relative; z-index:1; transition:var(--duration-default);}
+
+
+
+
+@media screen and (max-width: 749px) {
+.aimax-pricing-block .dt-sc-pricing-blocks-section {padding-top:30px;}
+}
+
+@media screen and (max-width: 1199px) {
+.aimax-pricing-block .dt-sc-pricing-blocks-section {padding-top:40px;}
+.aimax-pricing-block .section-heading h3.section-main-heading {font-size:4rem;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*="style-"] .dt-sc-pricing-block .dt-sc-pricing-header-area .dt-sc-pricing-sub-title {padding-bottom:20px;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-list {margin-top:0;}
+}
+
+@media screen and (max-width: 1340px) {
+.aimax-pricing-block .dt-sc-pricing-blocks-section {grid-gap:20px;}
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*="style-"] .dt-sc-pricing-block .dt-sc-pricing-button .button {max-width:250px;}
+}
+
+@media screen and (max-width: 767px) {
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*="style-"] .dt-sc-pricing-block .dt-sc-pricing-button .button {max-width:200px;}
+}
+
+@media screen and (max-width: 991px) {
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*="style-"] .dt-sc-pricing-block {min-height:100%; padding:40px;}
+}
+
+
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*="style-"] .dt-sc-pricing-block {position:relative; height:100%; display:flex; align-items:center; justify-content:space-between;transition:all .5s ease; padding:5rem 6rem; border-radius:var(--buttons-radius); overflow:hidden;}
+.aimax-pricing-block .page-width {max-width:calc(var(--page-width) + (-13rem));}
+.aimax-pricing-block .section-heading {text-align:center;}
+.aimax-pricing-block .section-heading p.section-heading-description {max-width:980px; margin:8px auto; width:100%;}
+.aimax-pricing-block .dt-sc-pricing-button-rec {margin-bottom:28px;}
+.aimax-pricing-block .dt-sc-pricing-button-rec .button {padding:8px 14px; font-size:9px;}
+ul.dt-sc-pricing-list li svg {width:1.8rem; height:1.8rem; margin-right:13px; background: var(--gradient-base-background-4); border-radius:50%; padding:0.4rem; color:var(--gradient-base-accent-2);}
+.aimax-pricing-block .dt-sc-pricing-block img.grid-banner-image {height:100%; max-height:150px; width:100%; max-width:145px; margin-top:2rem;}
+.aimax-pricing-block .banner__media.media img {object-fit:cover; object-position:center;}
+.aimax-pricing-block .banner__media {background:transparent;}
+/* .aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-list li *:only-child,
+.aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-list li h6 {     color: var(--gradient-background);} */
+@media screen and (max-width: 1199px){
+  .aimax-pricing-block .dt-sc-pricing-blocks-section[class*="style-"] .dt-sc-pricing-block .dt-sc-pricing-header-area{
+    text-align: left;
+  }
+  .aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block{
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
+    padding: 3.5rem;
+  }
+}
+@media screen and (max-width: 749px){
+  .aimax-pricing-block .dt-sc-pricing-blocks-section[class*="style-"] .dt-sc-pricing-block .dt-sc-pricing-header-area{
+    text-align:center;
+  }
+  .aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-title{
+    text-align: center;
+    margin: auto;
+  }
+  .aimax-pricing-block .dt-sc-pricing-header-area.description .dt-sc-pricing-description{
+    margin: auto;
+  }
+  .aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block>* {
+    text-align: center;
+}
+  .aimax-pricing-block .dt-sc-pricing-blocks-section .dt-sc-pricing-block .dt-sc-pricing-list{
+    align-items: center;
+  }
+  .aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block{
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 3rem;
+  }
+}
+@media screen and (min-width: 1024px) and (max-width: 1540px){
+  .aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block{
+    padding: 3rem;
+  }
+}
+@media screen and (min-width: 1541px){
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block .pricing_title,
+  .aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block .pricing_sub_heading,
+  .aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block .dt-sc-pricing-content-area,
+  .aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block .pricing_buttons{
+    position: relative; z-index: 1;
+}
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block .pricing_title:after{
+    content: '';
+    position: absolute;
+    width: 2px;
+    height: 150px;
+    background: rgb(var(--color-border));
+    right: -1px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-block .pricing_sub_heading:after{
+  content: '';
+    position: absolute;
+    width: 2px;
+    height: 150px;
+    background: rgb(var(--color-border));
+    right: -66px;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .pricing_sub_heading {
+    margin-left: -3rem;
+} 
+.aimax-pricing-block .dt-sc-pricing-blocks-section[class*=style-] .dt-sc-pricing-content-area {
+    margin-left: 5rem;
+}
+}

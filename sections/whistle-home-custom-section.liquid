@@ -1,0 +1,721 @@
+{%- liquid
+    if section.blocks.size > 0 
+    assign listWidth = section.settings.content_width | split: '/'
+    assign leftColumn = listWidth[0]
+    assign rightColumn = listWidth[1]  
+    
+    assign listWidth = section.settings.lap_content_width | split: '/' 
+    assign lap_leftColumn = listWidth[0]
+    assign lap_rightColumn = listWidth[1] 
+     endif 
+-%}
+<script src="{{ 'inview.js' | asset_url }}" defer></script>
+{%- style -%}
+  .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.35 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 1200px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+  .whistle-home-custom .home-custom-section .home-custom-section-wrapper {
+    position: relative;
+    z-index: 1;
+    display: grid;
+    grid-template-columns: 750px 1fr;
+}
+  .whistle-home-custom .home-custom-section .home-custom-section-wrapper .dt-sc-image-gallery { display: grid; grid-template-columns: repeat(2, 1fr);
+    gap: var(--DTGutter_Width); gap: {{section.settings.column_gap}}px;
+      }
+  .whistle-home-custom .home-custom-section-wrapper .dt-sc-custom-block h6.dt-sc-sub-heading {
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 600;
+    
+}
+  
+  {% for block in section.blocks %}
+    .whistle-home-custom .home-custom-section-wrapper .dt-sc-custom-block h6.dt-sc-sub-heading {
+    color: {{ block.settings.sub_heading_color }};  
+    }
+  .whistle-home-custom .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block.{{block.type}}-{{block.id}} .dt-sc-heading:empty { display: none; }
+  {% if block.settings.fullwidth_images %}
+  .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block.{{block.type}}-{{block.id}} .dt-sc-image-gallery { grid-template-columns: 1fr; }
+  {% endif %}
+  {% endfor %}
+  .whistle-home-custom .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block { display: flex; flex-wrap: wrap; justify-content: space-between; width: 100%;padding: 0; margin-top: 2rem;}
+
+  .whistle-home-custom .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block.dt-sc-reverse-columns { flex-direction: column-reverse; }
+  .whistle-home-custom .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block.dt-sc-reverse-columns .dt-sc-heading {
+    margin-top: 50px; margin-bottom: 0; }
+  .whistle-home-custom .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block .dt-sc-heading > *:not(:last-child){ margin:0;}
+  .whistle-home-custom .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block .dt-sc-heading{ margin-bottom:20px; }
+  .whistle-home-custom .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block .dt-sc-heading.text-center{ text-align:center; }
+  .whistle-home-custom .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block .dt-sc-heading.text-start{ text-align:left; }
+  .whistle-home-custom .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block .dt-sc-heading.text-end{ text-align:right; }
+  .whistle-home-custom .home-custom-section{position:relative;overflow:hidden;}
+  .whistle-home-custom .home-custom-section:after{
+    content:'';
+    background:url('{{ section.settings.mask_image | image_url: width: 1920 }}');
+    width: 100%;
+    height: 100%;
+    max-height: 250px;
+    position: absolute;
+    background-size: cover;
+    background-repeat: no-repeat;
+    bottom: 0;
+    z-index: -1;
+    }
+  
+  .whistle-home-custom:after{
+    content:'';
+    background:url('{{ section.settings.left_bg_image_pattern | image_url: width: 1500 }}');
+    width: 90%;
+    height: 100%;
+    position: absolute;
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    left: 50%;
+    transform: translateX(-50%);
+    bottom: 0;
+    z-index: -1
+  }
+  .whistle-home-custom .media {
+    background: transparent;
+    
+}
+  .left-image{position: relative;}
+  .whistle-home-custom .left-image .media{
+    max-width: 650px;
+    max-height: 750px;
+    height: 800px;
+  }
+  .left_content_image img {
+    object-fit: contain;
+}
+  
+
+{%- for block in section.blocks -%} 
+.whistle-home-custom .progress-bar_1 .progress-{{ block.id }}-value{ 
+  background-color: {{ block.settings.progress_bar_color }};
+  height: 10px;
+  position: relative;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px; 
+  border: 1px solid rgb(var(--color-border));
+  width: {{ block.settings.range }}%;
+}
+   .shopify-section.reveal .whistle-home-custom .progress-bar_1 .progress-{{ block.id }}-value{
+    animation: progress-bar--{{forloop.index}} 1500ms ease;
+  }
+    
+  @keyframes progress-bar--{{forloop.index}}{
+    0%{
+      width: 0;
+    }
+    100%{
+      width: {{ block.settings.range }}%;
+    }
+  }
+ 
+  
+.whistle-home-custom .progress-bar_1 .progress-{{ block.id }}-value .percentage {
+  position: absolute;
+  top: -64px;
+  right: 0;
+  left: auto;
+  bottom: auto;
+}
+ {% endfor %} 
+.whistle-home-custom .progress-bar_1 .range {
+  position: relative;
+/*   height: 15px; */
+  width: 100%;
+  background-color: rgb(227,215,198);
+  margin-bottom: 30px;
+  border-top-right-radius: 20px;
+  border-bottom-right-radius: 20px;
+  border-top-left-radius: 20px;
+  border-bottom-left-radius: 20px;
+}
+.whistle-home-custom .progress-bar_1:last-child .range{ margin: 0; }
+.whistle-home-custom .progress-bar_1 { width: 100%; }
+.whistle-home-custom .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block .dt-sc-main-heading{ max-width: 700px; margin-bottom: 2rem !important; }
+.whistle-home-custom .home-custom-section .progress_wrapper .progress-bar-title{ margin-top: 0; font-size: 1.8rem; font-weight: 600;margin-bottom: 0; font-family: var(--font-additional-family); color: var(--gradient-base-accent-3); }
+  .home-custom-section .home-custom-section-wrapper .progress_wrapper{
+    margin-top: 1rem;
+  }
+{%- for block in section.blocks -%} 
+  .whistle-home-custom .progress-bar-title-percent.progress-{{block.id}}{ 
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: {{ block.settings.range }}%;
+    margin-bottom: 15px;
+}
+  @media(max-width:480px){
+    .whistle-home-custom .progress-bar-title-percent.progress-{{block.id}} {width:100%}
+  }
+   {% endfor %} 
+.whistle-home-custom p.percentage {
+    margin: 0;
+    font-size: 2.2rem;
+    line-height: normal;
+    font-family: var(--font-additional-family);
+  color: var(--gradient-base-accent-3);
+    font-weight: 600;
+}
+.whistle-home-custom .home-custom-section-wrapper .dt-sc-custom-block a.button {
+    margin-top: 5.2rem;
+  background: rgb(var(--color-base-outline-button-labels));
+}
+  .whistle-home-custom .home-custom-section-wrapper .dt-sc-custom-block a.button:hover{
+ background: rgb(var(--color-base-solid-button-labels));   
+  }
+  .whistle-home-custom .svg_icon_content_section{
+    position: absolute;
+    bottom: -30px;
+    left: 0px;
+    z-index: -1;
+  }
+  .whistle-home-custom .home-custom-section .home-custom-section-wrapper{
+    padding: 0 4rem;
+  }
+  @media screen and (min-width:1024px) and (max-width:1540px){
+    .whistle-home-custom .home-custom-section .home-custom-section-wrapper{grid-template-columns: 550px 1fr;column-gap: 50px;}
+  .svg_icon_content_section svg{max-width: 550px;padding: 0;}
+  }
+@media screen and (min-width:1200px) and (max-width:1540px){
+  .whistle-home-custom .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block .dt-sc-main-heading{ font-size: 3rem; }
+  .whistle-home-custom .home-custom-section .progress_wrapper .progress-bar-title{ font-size: 2rem; }
+  .whistle-home-custom p.percentage{ font-size: 2rem; }
+  .whistle-home-custom .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block{ align-items: center; }
+}
+@media screen and (min-width:1024px) and (max-width:1199px){
+  .whistle-home-custom .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block .dt-sc-main-heading{ font-size: 3rem; }
+  .whistle-home-custom .home-custom-section .progress_wrapper .progress-bar-title{ font-size: 2rem; }
+ .whistle-home-custom  p.percentage{ font-size: 2rem; }
+ .whistle-home-custom  .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block{ align-items: center; }
+}
+@media screen and (max-width: 1023px){
+  .whistle-home-custom .home-custom-section .home-custom-section-wrapper{grid-template-columns: 1fr;display: grid;}
+  .whistle-home-custom .left-image .media{margin: auto;}
+  .svg_icon_content_section{
+    left: 50%;
+    transform: translateX(-50%);
+  }
+}
+ .whistle-home-custom  .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block .dt-sc-heading-description{ margin-bottom: 0; }
+  {%- for block in section.blocks -%}
+  .whistle-home-custom .progress-bar_1 .progress-{{ block.id }}-value{ height: 15px; }
+  {% endfor %}
+}
+@media screen and (min-width:750px) and (max-width:1023px){
+ .whistle-home-custom  .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block .dt-sc-heading{ width: 100%;margin-bottom: 3rem; }
+ .whistle-home-custom  .home-custom-section .progress_wrapper { width: 100%; }
+  .whistle-home-custom  .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block .dt-sc-main-heading{ font-size: 3rem; }
+ .whistle-home-custom  .home-custom-section .progress_wrapper .progress-bar-title{ font-size: 2rem; }
+.whistle-home-custom   p.percentage{ font-size: 2rem; }
+ .whistle-home-custom  .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block{ align-items: center; }
+}
+@media screen and (min-width:567px) and (max-width:749px){
+ .whistle-home-custom  .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block .dt-sc-heading{ width: 100%;margin-bottom: 3rem; }
+ .whistle-home-custom  .home-custom-section .progress_wrapper { width: 100%; }
+ .whistle-home-custom  .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block .dt-sc-main-heading{ font-size: 3rem; }
+ .whistle-home-custom  .home-custom-section .progress_wrapper .progress-bar-title{ font-size: 2rem; }
+ .whistle-home-custom  p.percentage{ font-size: 2rem; }
+.whistle-home-custom   .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block{ align-items: center; }
+} 
+  @media screen and (max-width: 749px){
+    .whistle-home-custom .left-image .media{
+      min-height: 500px;
+      height: 100%;
+    }
+   .whistle-home-custom .svg_icon_content_section {
+    left: 50%;
+    transform: translate(-50%,-50%);
+    top: 50%;
+    bottom: auto;
+  }
+    .whistle-home-custom .svg_icon_content_section svg{
+      max-width: 450px;
+    }
+  }
+    @media screen and (max-width: 480px){      
+      .whistle-home-custom .svg_icon_content_section svg{
+      max-width: 250px;
+    }
+      .whistle-home-custom .left-image .media{
+        min-height: 200px;
+        height: 100%;
+      }
+    }
+      @media screen and (max-width: 380px){      
+      .svg_icon_content_section svg{
+      max-width: 250px;
+    }
+    }
+@media screen and (min-width:320px) and (max-width:566px){
+ .whistle-home-custom  .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block .dt-sc-heading{ width: 100%;margin-bottom: 3rem; }
+ .whistle-home-custom  .home-custom-section .progress_wrapper { width: 100%; }
+ .whistle-home-custom  .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block .dt-sc-main-heading{ font-size: 3rem; }
+ .whistle-home-custom  .home-custom-section .progress_wrapper .progress-bar-title{ font-size: 2rem; }
+ .whistle-home-custom  p.percentage{ font-size: 2rem; }
+ .whistle-home-custom  .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block{ align-items: center; }
+
+  {%- for block in section.blocks -%}
+  .whistle-home-custom .progress-bar_1 .progress-{{ block.id }}-value{ height: 15px; }
+  {% endfor %}
+}
+
+/* .reveal .whistle-home-custom .home-custom-section .home-custom-section-wrapper .dt-sc-custom-block{  animation: fadeInUp 1s linear;  } */
+  
+.counter_value {
+    display: flex;
+    align-items: center;
+    column-gap: 3px;
+}
+ .whistle-home-custom .home-custom-section .left-image .svg_icon_content_section path{
+    stroke-dasharray: 2200;
+    stroke-dashoffset: 0;
+   
+ }
+  .shopify-section.reveal .whistle-home-custom .home-custom-section .left-image .svg_icon_content_section path{
+   animation: svg-animation 1800ms linear;
+}
+  @keyframes svg-animation{
+  0%{
+    stroke-dashoffset: 2200;
+  }
+  100%{
+    stroke-dashoffset: 0;
+  }
+}
+{%- endstyle -%}
+<div data-section-id="{{ section.id }}" class="whistle-home-custom color-{{ section.settings.color_scheme }} gradient isolate">
+  {%- if section.settings.cover_image != blank -%}
+    <div class="banner__media media{% if section.settings.cover_image == blank %} placeholder{% endif %}">
+      <img
+        srcset="{%- if section.settings.cover_image.width >= 375 -%}{{ section.settings.cover_image | image_url: width: 375 }} 375w,{%- endif -%}
+          {%- if section.settings.cover_image.width >= 550 -%}{{ section.settings.cover_image | image_url: width: 550 }} 550w,{%- endif -%}
+          {%- if section.settings.cover_image.width >= 750 -%}{{ section.settings.cover_image | image_url: width: 750 }} 750w,{%- endif -%}
+          {%- if section.settings.cover_image.width >= 1100 -%}{{ section.settings.cover_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+          {%- if section.settings.cover_image.width >= 1500 -%}{{ section.settings.cover_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+          {%- if section.settings.cover_image.width >= 1780 -%}{{ section.settings.cover_image | image_url: width: 1780 }} 1780w,{%- endif -%}
+          {%- if section.settings.cover_image.width >= 2000 -%}{{ section.settings.cover_image | image_url: width: 2000 }} 2000w,{%- endif -%}
+          {%- if section.settings.cover_image.width >= 3000 -%}{{ section.settings.cover_image | image_url: width: 3000 }} 3000w,{%- endif -%}
+          {%- if section.settings.cover_image.width >= 3840 -%}{{ section.settings.cover_image | image_url: width: 3840 }} 3840w,{%- endif -%}
+          {{ section.settings.cover_image | image_url }} {{ section.settings.cover_image.width }}w"
+        sizes="{% if section.settings.image_2 != blank and section.settings.stack_images_on_mobile %}(min-width: 750px) 50vw, 100vw{% elsif section.settings.image_2 != blank %}50vw{% else %}100vw{% endif %}"
+        src="{{ section.settings.cover_image | image_url: width: 1500 }}"
+        loading="lazy"
+        alt="{{ section.settings.cover_image.alt | escape }}"
+        width="{{ section.settings.cover_image.width }}"
+        height="{{ section.settings.cover_image.width | divided_by: section.settings.cover_image.aspect_ratio }}"
+        {% if section.settings.image_2 != blank %}class="banner__media-image-half"{% endif %}
+      >
+    </div>
+  {%- endif -%}
+<div class="home-custom-section {% if section.settings.title == blank %} no-heading{% endif %} {{ section.settings.custom_class_name }} ">
+ <div class="{% if section.settings.page_full_width %} page-full-width  {% endif %} {% if section.settings.page_full_width_spacing %} page-full-width_spacing {% endif %}">
+ <div class="row  section-{{ section.id }}-padding"> 
+     {%- unless section.settings.title == blank -%}
+      <div class="title-wrapper-with-link title-wrapper--self-padded-mobile title-wrapper--no-top-margin content-align--{{ section.settings.column_alignment }}">
+         {%- if section.settings.sub_heading != blank -%}  
+         <h6 class="sub-heading">{{ section.settings.sub_heading | escape }}</h6>
+         {%- endif -%} 
+         {%- if section.settings.title != blank -%}  
+          <h2 class="title {{ section.settings.heading_size }}">
+            {{ section.settings.title | escape }}
+          </h2>
+          {%- endif -%} 
+          {%- if section.settings.description != blank -%}  
+          <p class="description">{{ section.settings.description }}</p>
+          {%- endif -%}   
+          {%- if section.settings.button_label != blank -%}
+            <a {% if section.settings.button_link == blank %} role="link" aria-disabled="true"{% else %} href="{{ section.settings.button_link }}"{% endif %} class="button{% if section.settings.button_style_secondary %} button--secondary{% else %} button--primary{% endif %}">{{ section.settings.button_label | escape }}</a>
+          {%- endif -%}
+          </div>
+    {%- endunless -%}
+    <div class="home-custom-section-wrapper page-width">
+   <div class="left-image">
+      <div class="left_content_image image-with-text__media image-with-text__media--{{ section.settings.height }} {% if section.settings.left_image != blank %}media{% else %}image-with-text__media--placeholder placeholder{% endif %}">
+        {%- if section.settings.left_image != blank -%}
+          <img
+            srcset="{%- if section.settings.left_image.width >= 165 -%}{{ section.settings.left_image | image_url: width: 165 }} 165w,{%- endif -%}
+              {%- if section.settings.left_image.width >= 360 -%}{{ section.settings.left_image | image_url: width: 360 }} 360w,{%- endif -%}
+              {%- if section.settings.left_image.width >= 535 -%}{{ section.settings.left_image | image_url: width: 535 }} 535w,{%- endif -%}
+              {%- if section.settings.left_image.width >= 750 -%}{{ section.settings.left_image | image_url: width: 750 }} 750w,{%- endif -%}
+              {%- if section.settings.left_image.width >= 1070 -%}{{ section.settings.left_image | image_url: width: 1070 }} 1070w,{%- endif -%}
+              {%- if section.settings.left_image.width >= 1500 -%}{{ section.settings.left_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {{ section.settings.left_image | image_url }} {{ section.settings.left_image.width }}w"
+            src="{{ section.settings.left_image | image_url: width: 1500 }}"
+            sizes="(min-width: {{ settings.page_width }}px) {{ settings.page_width | minus: 100 | divided_by: 2 }}px, (min-width: 750px) calc((100vw - 130px) / 2), calc((100vw - 50px) / 2)"
+            alt="{{ section.settings.left_image.alt | escape }}"
+            loading="lazy"
+            width="{{ section.settings.left_image.width }}"
+            height="{{ section.settings.left_image.height }}"
+          >
+        {%- else -%}
+           {{ 'lifestyle-2' | placeholder_svg_tag: 'placeholder-svg' }}
+        {%- endif -%}
+       </div>
+                <div class="svg_icon_content_section">
+       {%- if  section.settings.svg_icons != blank -%}
+        {{ section.settings.svg_icons }}
+         {% endif %}
+      </div>
+   </div>
+        <div class="dt-sc-custom-block">
+           {% for block in section.blocks %}
+          {% if block.settings.block_heading != blank or block.settings.block_sub_heading != blank or block.settings.block_description != blank or block.settings.block_button_text or block.settings.block_button_link != blank %}
+          <div class="dt-sc-heading {{ block.settings.heading_position }}">
+            {%- if block.settings.block_sub_heading != blank -%}
+            <h6 class="dt-sc-sub-heading">{{block.settings.block_sub_heading}}</h6>
+            {%- endif -%}
+            {%- if block.settings.block_heading != blank -%}
+            <h2 class="dt-sc-main-heading h1">{{block.settings.block_heading}}</h2>
+            {%- endif -%}
+            {%- if block.settings.block_description != blank -%}
+            <p class="dt-sc-heading-description">{{block.settings.block_description}}</p>
+            {%- endif -%}
+            {%- if block.settings.html != blank -%}
+            <div class="dt-sc-heading-html rte">{{block.settings.html}}</div>
+            {%- endif -%}
+          </div>
+          {% endif %}
+        {% endfor %}
+       <div class="progress_wrapper inview-{{ section.id }}-initialized">
+        {% for block in section.blocks %}
+          {%- case block.type -%}
+            {%- when 'progress' -%}
+            <div class="progress-bar_1">
+              {% if block.settings.range_title != blank %}
+              <div class="progress-bar-title-percent progress-{{block.id}}">
+                <h5 class="progress-bar-title">{{ block.settings.range_title }} </h5> 
+                <div class="counter_value">
+                  <p class="percentage" data-value="{{ block.settings.range }}">{{ block.settings.range}}%</p>
+                <span>{{ block.settings.value_text }}</span>
+                </div>
+              </div>
+              {% endif %}
+              <div class="range">
+                <div class="progress-{{block.id}}-value"><span></span>
+               </div>
+                
+              </div>
+            </div>
+            {%- endcase -%}
+          {% endfor %}
+       </div>
+          {% for block in section.blocks %}
+          {%- if block.settings.block_button_link != blank and block.settings.block_button_text != blank -%}
+            <a href="{{block.settings.block_button_link}}" class="button">{{block.settings.block_button_text}} {% render 'icon-button' %}</a>
+            {%- endif -%}
+            {% endfor %}
+      </div>
+
+  </div>
+ </div>
+ </div>
+</div>
+</div>
+{% schema %}
+{
+  "name": "whistle-home-custom",
+  "class": "section",
+  "max_blocks": 4,
+  "tag": "section",
+  "settings": [
+    {
+      "type":"checkbox",
+      "id":"page_full_width",
+       "default": false,
+      "label": "t:sections.all.page_full_width.label"
+    },
+    {
+      "type":"checkbox",
+      "id":"page_full_width_spacing",
+       "default": false,
+      "label": "t:sections.all.page_full_width_spacing.label"
+    },
+    {
+      "type": "image_picker",
+      "id": "cover_image",
+      "label": "t:sections.video-pop-up.settings.cover_image.label"
+    },
+    {
+    "type": "image_picker",
+    "id": "mask_image",
+    "label": "Image"
+    },
+     {
+    "type": "image_picker",
+    "id": "left_image",
+    "label": "Left image"
+    },
+    {
+    "type": "image_picker",
+    "id": "left_bg_image_pattern",
+    "label": "Pattern image"
+    },
+    {
+          "type": "html",
+          "id": "svg_icons",
+          "label": "t:sections.support-block.blocks.column.settings.svg_icons.label"
+        },
+    {
+      "type": "text",
+      "id": "title",
+      "default": "Home Custom Section",
+      "label": "t:sections.all.title.label"
+    },
+    {
+      "type": "select",
+      "id": "heading_size",
+      "options": [
+        {
+          "value": "h2",
+          "label": "t:sections.all.heading_size.options__1.label"
+        },
+        {
+          "value": "h1",
+          "label": "t:sections.all.heading_size.options__2.label"
+        },
+        {
+          "value": "h0",
+          "label": "t:sections.all.heading_size.options__3.label"
+        }
+      ],
+      "default": "h1",
+      "label": "t:sections.all.heading_size.label"
+    },
+    {
+      "type": "text",
+      "id": "sub_heading",
+      "label": "t:sections.all.sub_heading.label"
+    },
+
+     {
+      "type": "text",
+      "id": "description",
+      "label": "t:sections.all.description.label"
+    },
+    {
+      "type": "text",
+      "id": "button_label",
+      "default": "Button label",
+      "label": "t:sections.all.button_label.label"
+    },
+    {
+      "type": "url",
+      "id": "button_link",
+      "label": "t:sections.all.button_link.label"
+    },
+    {
+      "type": "checkbox",
+      "id": "button_style_secondary",
+      "default": false,
+      "label": "t:sections.all.button_style_secondary.label"
+      },
+    {
+      "type": "select",
+      "id": "column_alignment",
+      "options": [
+        {
+          "value": "left",
+          "label": "t:sections.custom-section.settings.column_alignment.options__1.label"
+        },
+        {
+          "value": "center",
+          "label": "t:sections.custom-section.settings.column_alignment.options__2.label"
+        }
+      ],
+      "default": "left",
+      "label": "t:sections.custom-section.settings.column_alignment.label"
+    },
+    {
+      "type": "select",
+      "id": "color_scheme",
+      "options": [
+        {
+          "value": "accent-1",
+          "label": "t:sections.all.colors.accent_1.label"
+        },
+        {
+          "value": "accent-2",
+          "label": "t:sections.all.colors.accent_2.label"
+        },
+        {
+          "value": "background-1",
+          "label": "t:sections.all.colors.background_1.label"
+        },
+        {
+          "value": "background-2",
+          "label": "t:sections.all.colors.background_2.label"
+        },
+        {
+          "value": "inverse",
+          "label": "t:sections.all.colors.inverse.label"
+        }
+      ],
+      "default": "background-1",
+      "label": "t:sections.all.colors.label"
+    },
+  
+    {
+      "type": "header",
+      "content": "t:sections.all.padding.section_padding_heading"
+    },
+    {
+      "type": "range",
+      "id": "padding_top",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_top",
+      "default": 35
+    },
+    {
+      "type": "range",
+      "id": "padding_bottom",
+      "min": 0,
+      "max": 200,
+      "step": 5,
+      "unit": "px",
+      "label": "t:sections.all.padding.padding_bottom",
+      "default": 35
+    },
+    {
+    "type": "header",
+    "content": "t:sections.all.custom_class_heading.content"
+    },
+    {
+    "type": "text",
+    "id": "custom_class_name",
+    "label": "t:sections.all.custom_class_name.label"
+    }
+  ],
+  "blocks": [
+    {
+    "type": "content",
+    "limit": 1,
+    "name": "t:sections.custom-section.blocks.content.name",    
+    "settings": [
+    {
+    "type": "text",
+    "id": "block_heading",
+    "label": "t:sections.custom-section.blocks.content.settings.block_heading.label",
+    "default": "Main Heading"
+    },
+    {
+    "type": "text",
+    "id": "block_sub_heading",
+    "label": "t:sections.custom-section.blocks.content.settings.block_sub_heading.label",
+    "default": "Sub Heading"
+    },  
+          {
+      "type": "color",
+      "id": "sub_heading_color",
+      "default":"#FC800A",
+      "label": "Sub heading color"
+    },
+    {
+    "type": "text",
+    "id": "block_description",
+    "label": "t:sections.custom-section.blocks.content.settings.block_description.label",
+    "default": "Use this text to share the information which you like!."
+    },    
+    {
+    "type": "html",
+    "id": "html",
+    "label": "t:sections.custom-section.blocks.content.settings.html.label",
+    "default": "<p>Enter text with html tags</p>"
+    },    
+    {
+    "type": "text",
+    "id": "block_button_text",
+    "label": "t:sections.custom-section.blocks.content.settings.block_button_text.label"
+    },
+    {
+    "type": "url",
+    "id": "block_button_link",
+    "label": "t:sections.custom-section.blocks.content.settings.block_button_link.label"
+    },
+    {
+    "type": "select",
+    "id": "heading_position",
+    "label": "t:sections.custom-section.blocks.content.settings.heading_position.label",
+    "default": "text-start",
+    "options": [
+    {
+    "value": "text-center",
+    "label": "t:sections.custom-section.blocks.content.settings.heading_position.options__1.label"
+    },
+    {
+    "value": "text-start",
+    "label": "t:sections.custom-section.blocks.content.settings.heading_position.options__2.label"
+    },
+    {
+    "value": "text-end",
+    "label": "t:sections.custom-section.blocks.content.settings.heading_position.options__3.label"
+    }
+    ]
+    },
+    {
+    "type": "header",
+    "content": "t:sections.custom-section.blocks.content.settings.image_settings.content"
+    }
+    ]
+    },
+    {
+    "type": "progress",
+    "name": "Progress bar", 
+    "limit": 5,
+    "settings": [
+    {
+    "type": "text",
+    "id": "range_title",
+    "label": "Title",
+    "default": "Title"
+    },
+      {
+      "type": "text",
+      "id": "value_text",
+      "label": "t:sections.number-counter.blocks.icon.settings.value_text.label",
+      "default": "%"
+      },
+    {
+    "type": "range",
+    "id": "range",
+    "label": "Value",
+    "min": 1,
+    "max": 100,
+    "step": 1,
+    "default": 50
+    },
+    {
+    "type": "color",
+    "id": "progress_bar_color",
+    "label": "Bar color",
+    "default": "#FF922E"
+    }  
+    ]
+    }
+  ],
+    "presets": [
+    {
+      "name": "whistle-home-custom"
+    }
+  ]
+}
+
+{% endschema %}  

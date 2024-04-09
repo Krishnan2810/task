@@ -1,0 +1,258 @@
+{{ 'namma-organic-newsletter.css' | asset_url | stylesheet_tag }}
+
+
+<style>
+   .section-{{ section.id }}-padding {
+    padding-top: {{ section.settings.padding_top | times: 0.75 | round: 0 }}px;
+    padding-bottom: {{ section.settings.padding_bottom | times: 0.75 | round: 0 }}px;
+  }
+
+  @media screen and (min-width: 750px) {
+    .section-{{ section.id }}-padding {
+      padding-top: {{ section.settings.padding_top }}px;
+      padding-bottom: {{ section.settings.padding_bottom }}px;
+    }
+  }
+</style>
+
+{%- liquid
+  assign margin = section.settings.margin | split: ','
+  assign margin_top = margin[0]
+  assign margin_bottom = margin[1]
+  assign padding = section.settings.padding | split: ','
+  assign padding_top = padding[0]
+  assign padding_bottom = padding[1]
+
+  if section.settings.enable_overlay
+  assign section_overlay = 'dt-sc-overlay'
+  endif
+
+  if section.settings.show_background_image
+  assign lazyScript = "lazyload"
+  endif
+  %}
+<div class="namma-organic-newsletter">
+<div class="dt-sc-section-wrapper  {{ lazyScript }} {{ section_overlay }} {% if section.settings.background_style == 'parallax' %} parallax-initiated{% endif %}" {% if section.settings.background_style == 'parallax' %} data-speed="2" data-style="parallax"{% endif %} style="{% if section.settings.show_background_image %}background-position:center center;{% endif %} background-size: {{- section.settings.background_size -}}; {% if section.settings.background_style == 'fixed' %}background-attachment: fixed;{% endif %} background-repeat:{% if section.settings.background_size == 'repeat' %}repeat{% else %}no-repeat;{% endif %}" {% render 'bg_image' %}>
+ <div class="{% if section.settings.page_full_width %} page-full-width {% else %} page-width {% endif %} {% if section.settings.page_full_width_spacing %} page-full-width_spacing {% endif %}section-{{ section.id }}-padding isolate">
+   <div class="row {{ section.settings.custom_class_name }}">
+       {% if section.settings.section_heading != blank or section.settings.section_sub_heading != blank or   section.settings.section_description != blank or section.settings.section_button_link != blank %}
+        <div class="dt-sc-heading wow fadeIn {% if settings.title_image_enable != blank %} {{ settings.title_image_position | escape }} {% endif %} {{ section.settings.heading_position | escape }}">
+        {% if section.settings.section_sub_heading != blank %}
+        <h2 class="dt-sc-sub-heading">{{ section.settings.section_sub_heading }}</h2>
+        {% endif %}
+        {% if section.settings.section_heading != blank %}
+        <h3 class="dt-sc-main-heading">{{ section.settings.section_heading }}</h3>
+        {% endif %}      
+        {% if section.settings.section_description != blank %}
+        <p class="dt-sc-heading-description">{{ section.settings.section_description }}</p>
+        {% endif %}
+        {% if section.settings.section_button_link != blank  and section.settings.section_button_text != blank %}
+        <a href="{{ section.settings.section_button_link }}" class="dt-sc-btn">{{ section.settings.section_button_text }}</a>
+        {% endif %}
+        </div>
+        {% endif %}
+      <div class="dt-sc-newsletter-section style-3 {{ section.settings.section_position }} wow {% if section.settings.animation_effect_section != 'none' %} {{ section.settings.animation_effect_section }} {% endif %}">
+       <div class="left-image">
+         {% if section.settings.left_image != blank %}
+          <img
+              srcset="{%- if section.settings.left_image.width >= 375 -%}{{ section.settings.left_image | image_url: width: 375 }} 375w,{%- endif -%}
+              {%- if section.settings.left_image.width >= 550 -%}{{ section.settings.left_image | image_url: width: 550 }} 550w,{%- endif -%}
+              {%- if section.settings.left_image.width >= 750 -%}{{ section.settings.left_image | image_url: width: 750 }} 750w,{%- endif -%}
+              {%- if section.settings.left_image.width >= 1100 -%}{{ section.settings.left_image | image_url: width: 1100 }} 1100w,{%- endif -%}
+              {%- if section.settings.left_image.width >= 1500 -%}{{ section.settings.left_image | image_url: width: 1500 }} 1500w,{%- endif -%}
+              {%- if section.settings.left_image.width >= 1780 -%}{{ section.settings.left_image | image_url: width: 1780 }} 1780w,{%- endif -%}
+              {%- if section.settings.left_image.width >= 2000 -%}{{ section.settings.left_image | image_url: width: 2000 }} 2000w,{%- endif -%}
+              {%- if section.settings.left_image.width >= 3000 -%}{{ section.settings.left_image | image_url: width: 3000 }} 3000w,{%- endif -%}
+              {%- if section.settings.left_image.width >= 3840 -%}{{ section.settings.left_image | image_url: width: 3840 }} 3840w,{%- endif -%}
+              {{ section.settings.left_image | image_url: width: 1500 }} {{ section.settings.left_image.width }}w"
+              sizes="100vw"
+              src="{{ block.settings.block_image | image_url: width: 1500 }}"
+              loading="lazy"              
+              alt="{{ block.settings.block_image.alt | escape }}"
+              width="{{ block.settings.block_image.width }}"
+              height="{{ block.settings.block_image.width | divided_by: block.settings.block_image.aspect_ratio | round }}"
+            >
+           {% endif %}
+        </div>
+        <div class="dt-sc-newsletter-form">
+           {% if section.settings.news_sub_heading != blank %}
+            <h2 class="news-sub-heading">{{ section.settings.news_sub_heading }}</h2>
+            {% endif %}
+            {% if section.settings.news_heading != blank %}
+            <h2 class="news-main-heading">{{ section.settings.news_heading }}</h2>
+            {% endif %}
+            {% if section.settings.news_description != blank %}
+            <p class="news-description">{{ section.settings.news_description }}</p>
+            {% endif %}
+          {% form 'customer' %}
+          {{ form.errors | default_errors }}
+          {% if form.posted_successfully? %}
+          <h4 class="note form-success"  style="color:var(--DT_Success_Color)">{{ 'general.newsletter_form.mailing_list_success_message' | t }}</h4>
+          {% else %}
+          <div class="contact-input">
+            <input type="email" value="{% if customer %}{{ customer.email }}{% endif %}" placeholder="{{ 'newsletter.label' | t }}" name="contact[email]" class="mail" aria-label="{{ 'general.newsletter_form.newsletter_email' | t }}" required="required"  style="background-color:{{ section.settings.input_bg_color }};">
+            <input type="hidden" name="contact[tags]" value="newsletter">
+            <button type="submit" class="dt-sc-btn {% if section.settings.reverse_column %}reverse{% endif %}" name="subscribe" value="" ><span>{{ 'newsletter.button_label' | t }}</span>
+            </button>
+          </div>
+          {% endif %}
+          {% endform %}
+          {% if section.settings.newsletter_description != blank %}
+          <p class="dt-sc-newsletter-description" style="color: {{ section.settings.newsletter_description_color }};">{{ section.settings.newsletter_description}}</p>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{%- style -%}
+ 
+.namma-organic-newsletter .dt-sc-heading .dt-sc-main-heading {color:var(--DTColor_Heading); color:{{section.settings.section_heading_color}};}
+
+.namma-organic-newsletter .dt-sc-heading .dt-sc-sub-heading {color:var(--DTColor_Heading); color:{{section.settings.section_sub_heading_color}};}
+
+.namma-organic-newsletter .dt-sc-heading .dt-sc-heading-description {color:var(--DTColor_Body); color:{{section.settings.section_description_color}};}
+
+.namma-organic-newsletter .dt-sc-heading .dt-sc-btn {background:var(--DT_Button_BG_Color); background:{{section.settings.section_button_bg_color}};color:var(--DT_Button_Text_Color); color:{{section.settings.section_button_text_color}};}
+
+.namma-organic-newsletter .dt-sc-heading .dt-sc-btn:hover {background:var(--DT_Button_BG_Hover_Color); background:{{section.settings.section_button_hover_bg_color}};color:var(--DT_Button_Text_Hover_Color); color:{{section.settings.section_button_hover_text_color}};}
+
+.namma-organic-newsletter .dt-sc-overlay:before {color:var(--DTTertiaryColor); color:{{section.settings.background_color}};background:currentcolor; opacity:{{section.settings.overlay_transparency}};}
+
+.namma-organic-newsletter .dt-sc-newsletter-section.default .dt-sc-newsletter-form, .dt-sc-newsletter-section.style-3 form, .dt-sc-newsletter-section.style-4 form {width:{{section.settings.newsletter_form_width}};}
+
+.namma-organic-newsletter .dt-sc-newsletter-section.default form .contact-input input[type="email"] {margin-right:{{section.settings.space_in_between}};}
+
+.namma-organic-newsletter .dt-sc-newsletter-section.default form .contact-input .dt-sc-btn {border-width:1px; border-style:solid; border-color:var(--DT_Button_BG_Color); border-color:{{section.settings.newsletter_button_bg_color}};}
+
+.namma-organic-newsletter .dt-sc-newsletter-section.default form .contact-input .dt-sc-btn:hover {border-color:var(--DT_Button_BG_Hover_Color); border-color:{{section.settings.newsletter_button_hover_bg_color}};}
+
+.namma-organic-newsletter .dt-sc-newsletter-section.style-2 form .contact-input input[type="email"] {margin:0 auto{{section.settings.space_in_between}};}
+
+.namma-organic-newsletter .dt-sc-newsletter-section.style-2.text-start form .contact-input input[type="email"] {margin-left:inherit;}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-2.text-end form .contact-input input[type="email"] {margin-right:inherit;}
+
+.namma-organic-newsletter .dt-sc-newsletter-section.style-5 form .contact-input input[type="email"] {margin:0 auto{{section.settings.space_in_between}};}
+
+.namma-organic-newsletter .dt-sc-newsletter-section form .contact-input input[type="email"] {border-color:var(--DTColor_Border); border-color:{{section.settings.newsletter_box_border_color}};background:{{section.settings.newsletter_box_bg_color}};}
+
+.namma-organic-newsletter .dt-sc-newsletter-section.style-4 form .contact-input button.dt-sc-btn {border-color:var(--DTColor_Border); border-color:{{section.settings.newsletter_box_border_color}};}
+
+.namma-organic-newsletter .dt-sc-newsletter-section form .contact-input input[type="email"]:focus, .dt-sc-newsletter-section.style-4 form .contact-input:focus-within button.dt-sc-btn {border-color:var(--DTPrimaryColor); border-color:{{section.settings.newsletter_box_border_focus_color}};}
+
+.namma-organic-newsletter .dt-sc-newsletter-section:not(.style-4) form .contact-input .dt-sc-btn {background:var(--DT_Button_BG_Color); color:var(--DT_Button_Text_Color); background:{{section.settings.newsletter_button_bg_color}};color:{{section.settings.newsletter_button_text_color}};}
+
+.namma-organic-newsletter .dt-sc-newsletter-section:not(.style-4) form .contact-input .dt-sc-btn:hover {background:var(--DT_Button_BG_Hover_Color); color:var(--DT_Button_Text_Hover_Color); background:{{section.settings.newsletter_button_hover_bg_color}};color:{{section.settings.newsletter_button_hover_text_color}};}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-4 form .contact-input button.dt-sc-btn {background:none; color:{{settings.link_color}};color:{{section.settings.newsletter_button_text_color}};position:absolute; right:5px; top:50%; transform:translateY(-50%); border-width:0 0 0 1px; border-style:solid; padding-top:0; padding-bottom:0; border-radius:0;}
+
+.namma-organic-newsletter .dt-sc-newsletter-section.style-4 form .contact-input button.dt-sc-btn:hover {color:{{settings.link_hover_color}};color:{{section.settings.newsletter_button_hover_text_color}};}
+
+@media only screen and (min-width: 1200px) {
+.namma-organic-newsletter .dt-sc-section-wrapper {margin-top:{{margin_top}}px; margin-bottom:{{margin_bottom}}px; padding-top:{{padding_top}}px; padding-bottom:{{padding_bottom}}px;}
+}
+
+@media only screen and (max-width: 1199px) {
+.namma-organic-newsletter .dt-sc-section-wrapper {margin-top:{{margin_top | divided_by:2}}px; margin-bottom:{{margin_bottom | divided_by:2}}px; padding-top:{{padding_top | divided_by:2}}px; padding-bottom:{{padding_bottom | divided_by:2}}px;}
+}
+@media (max-width: 767px) {
+.namma-organic-newsletter .dt-sc-newsletter-container .dt-sc-newsletter-modal .dt-sc-newsletter-content.default form.contact-form {width:80%;}
+.namma-organic-newsletter .dt-sc-newsletter-container .dt-sc-newsletter-modal .dt-sc-newsletter-content.style-3 form.contact-form, .dt-sc-newsletter-container .dt-sc-newsletter-modal .dt-sc-newsletter-content.style-4 form.contact-form {width:100%;}
+.namma-organic-newsletter .dt-sc-newsletter-container .dt-sc-newsletter-modal .dt-sc-newsletter-content.default form.contact-form input[type="email"] {margin-bottom:{{section.settings.space_in_between}};margin-right:0; width:100%;}
+}
+                                                                                                                             
+.dt-sc-newsletter-section .left-image:before {content:""; position:absolute; background-image:url({{section.settings.before_image | image_url: width: 500}}); width:482px; height:462px; background-repeat:no-repeat; background-size:contain; max-width:100%; top:-30px; left:100px; z-index:-1;}
+
+{%- endstyle -%}
+
+{% schema %}
+{
+"name": "Newsletter",
+"class": "index-section home-newsletter-section",
+"settings": [
+{
+"type":"checkbox",
+"id":"page_full_width",
+ "default": false,
+"label": "t:sections.all.page_full_width.label"
+},
+{
+"type":"checkbox",
+"id":"page_full_width_spacing",
+ "default": false,
+"label": "t:sections.all.page_full_width_spacing.label"
+},
+{
+  "type": "range",
+  "id": "padding_top",
+  "min": 0,
+  "max": 120,
+  "step": 4,
+  "unit": "px",
+  "label": "t:sections.all.padding.padding_top",
+  "default": 36
+},
+{
+  "type": "range",
+  "id": "padding_bottom",
+  "min": 0,
+  "max": 120,
+  "step": 4,
+  "unit": "px",
+  "label": "t:sections.all.padding.padding_bottom",
+  "default": 36
+},
+{
+"type": "header",
+"content": "Form Settings"
+},
+{
+"type": "image_picker",
+"id": "left_image",
+"label": "t:sections.newsletter.settings.background_image.label"
+},
+  {
+"type": "image_picker",
+"id": "before_image",
+"label": "t:sections.newsletter.settings.before_image.label"
+
+},
+{
+"type": "text",
+"id": "news_heading",
+"label": "t:sections.newsletter.settings.main_heading.label",
+"default": "Newsletter"
+},
+{
+"type": "text",
+"id": "news_sub_heading",
+"label": "t:sections.newsletter.settings.sub_heading.label",
+"default": "Sub Heading"
+},
+  {
+"type": "text",
+"id": "news_description",
+"label": "t:sections.newsletter.settings.desc.label",
+"default": "description"
+},
+{
+"type": "text",
+"id": "newsletter_form_width",
+"label": "t:sections.newsletter.settings.Form_Width.label",
+"default": "65%"
+},
+{
+"type": "textarea",
+"id": "newsletter_description",
+"label": "t:sections.newsletter.settings.Newsletter_Description.label",
+"default": "Few lines of short description goes here..."
+}
+],
+"presets": [
+{
+"name": "Newsletter",
+"category": "Form"
+}
+]
+}
+{% endschema %}

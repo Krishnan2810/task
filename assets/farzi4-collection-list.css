@@ -1,0 +1,198 @@
+.farzi-collection .collection-list {
+  margin-top: 0;
+  margin-bottom: 0;
+}
+
+.farzi-collection .collection-list-title {
+  margin: 0;
+}
+
+
+.farzi-collection.farzi4-collection-list .card .card__content .icon-wrap { display: none; }
+
+@media screen and (max-width: 749px) {
+  .farzi-collection .collection-list:not(.slider) {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .section-collection-list .farzi-collection .page-width {
+    padding-left: 0;
+    padding-right: 0;
+  }
+
+  .section-collection-list .farzi-collection .collection-list:not(.slider) {
+    padding-left: 1.5rem;
+    padding-right: 1.5rem;
+  }
+}
+.farzi-collection
+  .collection-list.demo-4-collection
+  .collection-list__item.swiper-slide {
+  overflow: hidden;
+}
+.farzi-collection .collection-list__item:only-child {
+  max-width: 100%;
+  width: 100%;
+}
+.farzi-collection .demo-6-collection-list .card__content .icon-wrap svg {
+  width: 1.2rem;
+  height: 1.2rem;
+}
+@media screen and (max-width: 749px) {
+  .farzi-collection .slider.collection-list--1-items {
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 750px) and (max-width: 989px) {
+  .farzi-collection .slider.collection-list--1-items,
+  .farzi-collection .slider.collection-list--2-items,
+  .farzi-collection .slider.collection-list--3-items,
+  .farzi-collection .slider.collection-list--4-items {
+    padding-bottom: 0;
+  }
+}
+
+@media screen and (min-width: 750px) {
+  .farzi-collection .collection-list__item a:hover {
+    box-shadow: none;
+  }
+}
+
+@media screen and (max-width: 989px) {
+  .farzi-collection .collection-list.slider .collection-list__item {
+    max-width: 100%;
+  }
+}
+
+.farzi-collection .collection-list-view-all {
+  margin-top: 2rem;
+}
+/* .card-wrapper .card__inner{will-change:transform;} */
+/*custom css */
+.farzi-collection .custom-collection-list .card-wrapper .card__inner {
+  border-radius: 50%;
+  will-change: transform;
+}
+.farzi-collection .custom-collection-list.collection-list .swiper {
+  padding: 0 15px;
+}
+.farzi-collection .custom-collection-list.collection-list .card .icon-wrap {
+  display: none;
+}
+.farzi-collection
+  .custom-collection-list.collection-list
+  .card__information
+  .card__heading {
+  text-align: center;
+  font-size: 1.6rem;
+  text-transform: uppercase;
+}
+.farzi-collection
+  .custom-collection-list.collection-list
+  .card__information
+  .card__heading
+  sup {
+  font-size: 8px;
+  margin-left: -4px;
+  font-weight: 600;
+}
+.farzi-collection
+  .custom-collection-list.collection-list
+  .card--card.card--media
+  > .card__content {
+  padding: 25px 0 0 !important;
+}
+.farzi-collection .custom-collection-list.collection-list .swiper-button-prev,
+.custom-collection-list.collection-list .swiper-rtl .swiper-button-next {
+  left: 0;
+}
+.farzi-collection .custom-collection-list.collection-list .swiper-button-next,
+.custom-collection-list.collection-list .swiper-rtl .swiper-button-prev {
+  right: 0;
+}
+
+.farzi-collection .custom-collection-list .card-wrapper:hover:before {
+  visibility: visible;
+  opacity: 1;
+  width: 0;
+}
+.farzi-collection .custom-collection-list .card-wrapper:hover:after {
+  visibility: visible;
+  opacity: 1;
+  height: 0;
+}
+.farzi-collection .custom-collection-list .card-wrapper:before,
+.custom-collection-list .card-wrapper:after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  margin: auto;
+  transition: all 0.5s ease;
+  z-index: 5;
+  top: -30px;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  opacity: 0;
+  visibility: hidden;
+  background-color: rgb(248, 248, 248, 0.3);
+  pointer-events: none;
+}
+.farzi-collection .demo2-featured-collection .card-wrapper .card__inner {
+  height: 500px;
+}
+.farzi-collection .demo2-featured-collection .card__media .media img {
+  object-fit: contain;
+}
+
+@media screen and (min-width: 1440px) {
+  .farzi-collection
+    .card__information
+    .card__heading
+    a
+    .collection_product_count {
+    font-size: 1.6rem;
+  }
+  .farzi-collection .demo-4-collection .card__information .card__heading {
+    font-size: 2.2rem;
+    font-weight: 600;
+  }
+  .farzi-collection .demo-4-collection .card .icon-wrap {
+    display: none;
+  }
+  .farzi-collection
+    .demo-4-collection
+    .card--card.card--media
+    > .card__content {
+    text-align: center;
+  }
+  .farzi-collection
+    .demo-4-collection
+    .card--card.card--media
+    > .card__content {
+    margin-top: 1rem;
+  }
+}
+@media screen and (min-width: 768px) {
+  .farzi-collection
+    .collection-list.demo-4-collection
+    .title-wrapper-with-link.content-align--center
+    .description {
+    text-align: center;
+    max-width: 40rem;
+  }
+}
+@media screen and (max-width: 767px) {
+  .farzi-collection
+    .collection-list.demo-4-collection
+    .title-wrapper-with-link
+    .title {
+    text-align: center;
+  }
+}
+
+
+

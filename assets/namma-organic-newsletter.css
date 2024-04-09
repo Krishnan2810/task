@@ -1,0 +1,199 @@
+
+.namma-organic-newsletter .dt-sc-newsletter-section form {display:flex; flex-wrap:wrap; width:100%;}
+.namma-organic-newsletter .dt-sc-newsletter-section form:not(:only-child) {margin-bottom:15px;}
+.namma-organic-newsletter .dt-sc-newsletter-section form .errors {width:100%; color:var(--DT_Error_Color); display:inline-block;}
+.namma-organic-newsletter .dt-sc-newsletter-section form .errors ul {margin:0 0 15px; padding:0;}
+.namma-organic-newsletter .dt-sc-newsletter-section form .note.form-success {display:inline-block; width:100%; color:var(--DT_Success_Color); margin:0;}
+.namma-organic-newsletter .dt-sc-newsletter-section form .dt-sc-newsletter-note {margin-top:10px; width:100%; display:inline-block;}
+.namma-organic-newsletter .dt-sc-newsletter-section.text-center form .contact-input {justify-content:center; margin:auto;}
+.namma-organic-newsletter .dt-sc-newsletter-section.text-end form .contact-input {justify-content:flex-end;}
+.namma-organic-newsletter .dt-sc-newsletter-section form .contact-input {display:flex; flex-wrap:wrap; width:100%;}
+.namma-organic-newsletter .dt-sc-newsletter-section form .contact-input input[type="email"] {-webkit-transition:all linear .3s; transition:all linear .3s; width:50%;}
+.namma-organic-newsletter .dt-sc-newsletter-section form .contact-input .dt-sc-btn {margin:0; align-self:stretch;}
+.namma-organic-newsletter .dt-sc-newsletter-section form .contact-input .dt-sc-btn.reverse {direction:rtl;}
+.namma-organic-newsletter .dt-sc-newsletter-section form .contact-input .dt-sc-btn.reverse i {margin-right:10px;}
+.namma-organic-newsletter .dt-sc-newsletter-section form .contact-input .dt-sc-btn:not(.reverse) i:not(:only-child) {margin-left:10px;}
+.namma-organic-newsletter .dt-sc-newsletter-section.text-center form .contact-input {align-items:center; justify-content:center;}
+.namma-organic-newsletter .dt-sc-newsletter-section.text-end form .contact-input {align-items:center; justify-content:flex-end;}
+.namma-organic-newsletter .dt-sc-newsletter-section.default {width:100%; display:flex;}
+.namma-organic-newsletter .dt-sc-newsletter-section.default.text-end {justify-content:flex-end;}
+.namma-organic-newsletter .dt-sc-newsletter-section.default.text-center {justify-content:center;}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-2 form .contact-input {display:block;}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-2 form .contact-input button.dt-sc-btn {display:inline-block;}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-3 form {display:inline-block;}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-3 form .contact-input {position:relative;}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-3 form .contact-input button.dt-sc-btn {text-transform:capitalize; position:absolute; right:2px; bottom:2px; top:2px; border-radius:26px; padding:20px 30px; line-height:0; border:none; transition:all 0.3s linear;}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-3 form .contact-input input[type="email"] {width:100%; padding:20px 30px; border:1px solid transparent; border-radius:26px;background: rgba(var(--color-base-accent-1),0.1);}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-4 form {display:inline-block;}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-4 form .contact-input {position:relative;}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-4 form .contact-input input[type="email"] {width:100%;}
+
+.namma-organic-newsletter .dt-sc-newsletter-section.style-5 form .contact-input {display:block;}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-5 form .contact-input input[type="email"], .dt-sc-newsletter-section.style-5 form .contact-input button.dt-sc-btn {width:50%; display:inline-block;}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-5.text-start form .contact-input input[type="email"] {margin-left:inherit;}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-5.text-end form .contact-input input[type="email"] {margin-right:inherit;}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-3 form .contact-input input[type="email"]:focus-visible {outline:none; offset:none; box-shadow:none; border:1px solid var(--gradient-base-accent-1);}
+.namma-organic-newsletter .dt-sc-newsletter-section .left-image img {
+    max-width: 460px;
+  border-radius: var(--card-corner-radius);
+}
+.namma-organic-newsletter .left-image .left_side_img_1, .namma-organic-newsletter .left-image .left_side_img_2{
+  display: flex;
+}
+.namma-organic-newsletter .left-image .left_side_img_2{
+  justify-content: flex-end;
+}
+.namma-organic-newsletter .left-image .left_side_img_1{
+  justify-content: center;
+}
+.namma-organic-newsletter .dt-sc-newsletter-section .left-image{
+  display: flex;
+  flex-direction: column;
+}
+.namma-organic-newsletter .left-image .left_side_img_1 {
+    margin-bottom: 1.8rem;padding-right: 6rem;
+}
+.namma-organic-newsletter .left-image .left_side_img_1 .svg_icon_content_section {
+    position: absolute;
+    left: -60px;
+    top: -140px;
+    z-index: -1;
+}
+.form_1 {
+    display: flex;
+  column-gap: 2rem;
+  margin-bottom: 2rem;
+} 
+.phone_field{
+  margin-bottom: 2rem;
+}
+.name_field, .email_field, .phone_field, .textarea_field{
+  height: 6rem;
+  border-radius: var(--inputs-radius);
+  margin: 0;
+  border: 1px solid transparent;
+  padding: 2rem 3.5rem;
+}
+.textarea_field{min-height: 20rem;}
+.phone_field{margin-bottom: 2rem;}
+.dt-sc-newsletter-form .article-template__comment-fields .field .field__label{
+  letter-spacing: normal;
+    color: rgb(var(--color-foreground),.6);
+  padding: 2rem 0;
+}
+.dt-sc-newsletter-form .button{
+  text-transform: capitalize;
+    font-weight: 400;
+    font-size: 1.6rem;
+    background: rgb(var(--color-base-outline-button-labels));
+    margin-top: 3.5rem;
+}
+.dt-sc-newsletter-form .button:hover{
+  background: rgb(var(--color-base-solid-button-labels));
+}
+.article-template__comment-fields {
+    margin-top: 1.5rem;
+}
+.namma-organic-newsletter{position: relative;}
+@media (max-width: 478px) {
+.namma-organic-newsletter .dt-sc-newsletter-container .dt-sc-newsletter-modal .dt-sc-newsletter-content form {grid-template-columns:1fr;}
+p.newsletter-success {padding:30px; font-size:var(--DTFontSize_H5);}
+.namma-organic-newsletter .dt-sc-newsletter-container .dt-sc-newsletter-modal .dt-sc-newsletter-content.style-4 form.contact-form input[type="email"], .dt-sc-newsletter-container .dt-sc-newsletter-modal .dt-sc-newsletter-content.style-5 form.contact-form input[type="email"] {padding:15px 15px 65px; text-align:center;}
+.namma-organic-newsletter .dt-sc-newsletter-container .dt-sc-newsletter-modal .dt-sc-newsletter-content.style-4 form.contact-form button.dt-sc-btn, .dt-sc-newsletter-container .dt-sc-newsletter-modal .dt-sc-newsletter-content.style-5 form.contact-form button.dt-sc-btn {bottom:10px; left:0px; right:0; margin:auto; top:auto; transform:none; width:calc(100% - 20px);}
+.namma-organic-newsletter .dt-sc-newsletter-container .dt-sc-newsletter-modal .dt-sc-newsletter-content.style-4 form.contact-form button.dt-sc-btn {width:calc(100% - 60px); padding:15px 0px 5px; border-left:none; border-top:1px solid;}
+}
+
+@media (max-width: 576px) {
+.namma-organic-newsletter .dt-sc-newsletter-section.default form .contact-input input[type="email"] {margin-bottom:10px;}
+}
+
+.namma-organic-newsletter .dt-sc-newsletter-section {display:flex; justify-content:space-between; align-items:center;}
+.namma-organic-newsletter .dt-sc-newsletter-section .left-image {width:calc(55% - 210px ); position:relative;}
+.namma-organic-newsletter .dt-sc-newsletter-section .dt-sc-newsletter-form {text-align:left; width:50%;}
+.namma-organic-newsletter .dt-sc-newsletter-section .dt-sc-newsletter-form .news-sub-heading {margin-bottom:0; font-family:var(--DTFontTypo_Custom); font-weight:500; font-size:calc(var(--DTFontSize_H2) + 6px);}
+.namma-organic-newsletter .dt-sc-newsletter-section .dt-sc-newsletter-form .news-main-heading {margin-top:0;font-weight:400;margin-bottom: .8rem;}
+.namma-organic-newsletter .dt-sc-newsletter-section .dt-sc-newsletter-form .news-description {max-width: 600px;}
+.namma-organic-newsletter .home-newsletter-section .dt-sc-newsletter-section.text-center form .contact-input {justify-content:flex-start; align-items:flex-start;}
+
+@media screen and (max-width:1540px) {
+.namma-organic-newsletter .dt-sc-newsletter-section .left-image {width:45%;}
+.namma-organic-newsletter .dt-sc-newsletter-section .dt-sc-newsletter-form {width:45%;}
+.namma-organic-newsletter .dt-sc-newsletter-section .dt-sc-newsletter-form .news-description {width:100%;}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-3 form {width:100%;}
+}
+
+@media screen and (max-width:1199px) {
+.namma-organic-newsletter .dt-sc-newsletter-section .left-image:before {width:250px; height:250px; top:0;}
+.namma-organic-newsletter .dt-sc-newsletter-section .left-image {width:45%;}
+.namma-organic-newsletter .dt-sc-newsletter-section .dt-sc-newsletter-form {width:45%;}
+  .namma-organic-newsletter .left-image .left_side_img_1{
+      padding-right: 0;
+  }
+  .namma-organic-newsletter .left-image .left_side_img_2{
+    justify-content: center;
+  }
+  .namma-organic-newsletter .left_side_img_2 .svg_icon_content_section{
+    display: none;
+  }
+}
+
+@media screen and (max-width:991px) {
+  
+.namma-organic-newsletter .dt-sc-newsletter-section .left-image {width:100%;flex-direction: row;justify-content: center;margin-bottom: 3rem;flex-wrap: wrap;}
+  .namma-organic-newsletter .left-image .left_side_img_1,
+  .namma-organic-newsletter .left-image .left_side_img_2{padding: 1rem;margin: 0;}
+.namma-organic-newsletter .dt-sc-newsletter-section .dt-sc-newsletter-form {width:100%;}
+.namma-organic-newsletter .dt-sc-newsletter-section {flex-wrap:wrap; justify-content:center;}
+.namma-organic-newsletter .dt-sc-newsletter-section .left-image:before {bottom:0; margin:auto; left:0; right:0;}
+  .namma-organic-newsletter .dt-sc-newsletter-section .left-image img{max-width: 300px;}
+}
+
+@media screen and (max-width:480px) {
+.namma-organic-newsletter .dt-sc-newsletter-section.style-3 form .contact-input button.dt-sc-btn {position:static; margin-top:18px; margin-bottom:15px;}
+.namma-organic-newsletter .dt-sc-newsletter-section .left-image:before {width:150px; height:150px;}
+}
+
+.namma-organic-newsletter .dt-sc-newsletter-section.style-3 form .contact-input button.dt-sc-btn { background: var(--gradient-base-accent-1);    color: var(--gradient-base-background-1);}
+.namma-organic-newsletter .dt-sc-newsletter-section.style-3 form .contact-input button.dt-sc-btn:hover{ background: var(--gradient-base-background-2);    color: var(--gradient-base-accent-1);}
+
+
+.namma-organic-newsletter .left-image .left_side_img_1 .svg_icon_content_section rect{
+  animation: svg_rotate 1.5s ease-in-out infinite;
+}
+@keyframes svg_rotate{
+  0%, 100% {opacity: 1;}
+  50% {opacity: 0;}
+}
+
+.namma-organic-newsletter .left-image .left_side_img_1 .svg_icon_content_section rect:nth-child(1){
+  animation-delay: .2s;
+  transition-delay: .2s;
+}
+.namma-organic-newsletter .left-image .left_side_img_1 .svg_icon_content_section rect:nth-child(2){
+  animation-delay: .3s;
+  transition-delay: .3s;
+}
+.namma-organic-newsletter .left-image .left_side_img_1 .svg_icon_content_section rect:nth-child(3){
+  animation-delay: .4s;
+  transition-delay: .4s;
+}
+.namma-organic-newsletter .left-image .left_side_img_1 .svg_icon_content_section rect:nth-child(4){
+  animation-delay: .5s;
+  transition-delay: .5s;
+}
+.namma-organic-newsletter .left-image .left_side_img_1 .svg_icon_content_section rect:nth-child(5){
+  animation-delay: .6s;
+  transition-delay: .6s;
+}
+.namma-organic-newsletter .left-image .left_side_img_1 .svg_icon_content_section rect:nth-child(6){
+  animation-delay: .7s;
+  transition-delay: .7s;
+}
+.namma-organic-newsletter .left-image .left_side_img_1 .svg_icon_content_section rect:nth-child(7){
+  animation-delay: .8s;
+  transition-delay: .8s;
+}
+.namma-organic-newsletter .left-image .left_side_img_1 .svg_icon_content_section rect:nth-child(8){
+  animation-delay: .9s;
+  transition-delay: .9s;
+}
